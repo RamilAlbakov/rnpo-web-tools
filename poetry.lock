@@ -70,6 +70,14 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
+name = "cx-oracle"
+version = "8.3.0"
+description = "Python interface to Oracle"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "darglint"
 version = "1.8.1"
 description = "A utility for ensuring Google-style docstrings stay up to date with the source code."
@@ -110,6 +118,14 @@ description = "Removes commented-out code."
 category = "dev"
 optional = false
 python-versions = "*"
+
+[[package]]
+name = "et-xmlfile"
+version = "1.1.0"
+description = "An implementation of lxml.xmlfile for the standard library"
+category = "main"
+optional = false
+python-versions = ">=3.6"
 
 [[package]]
 name = "flake8"
@@ -330,6 +346,17 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "openpyxl"
+version = "3.0.10"
+description = "A Python library to read/write Excel 2010 xlsx/xlsm files"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+et-xmlfile = "*"
+
+[[package]]
 name = "pbr"
 version = "5.9.0"
 description = "Python Build Reasonableness"
@@ -386,6 +413,17 @@ description = "Pygments is a syntax highlighting package written in Python."
 category = "dev"
 optional = false
 python-versions = ">=3.6"
+
+[[package]]
+name = "python-dotenv"
+version = "0.20.0"
+description = "Read key-value pairs from a .env file and set them as environment variables"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.extras]
+cli = ["click (>=5.0)"]
 
 [[package]]
 name = "pyyaml"
@@ -502,7 +540,7 @@ typing_extensions = ">=3.6,<5.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "90050e6b199443747a0ff5022e22b76de356090909d79842dc27c1b33b7d9bba"
+content-hash = "d2088f8c1c52ea3c71c8f5dacad9f87321526369f6cd448cb70c836d6a8cd8f2"
 
 [metadata.files]
 asgiref = [
@@ -543,6 +581,24 @@ colorama = [
     {file = "colorama-0.4.4-py2.py3-none-any.whl", hash = "sha256:9f47eda37229f68eee03b24b9748937c7dc3868f906e8ba69fbcbdd3bc5dc3e2"},
     {file = "colorama-0.4.4.tar.gz", hash = "sha256:5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"},
 ]
+cx-oracle = [
+    {file = "cx_Oracle-8.3.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:b6a23da225f03f50a81980c61dbd6a358c3575f212ca7f4c22bb65a9faf94f7f"},
+    {file = "cx_Oracle-8.3.0-cp310-cp310-win32.whl", hash = "sha256:715a8bbda5982af484ded14d184304cc552c1096c82471dd2948298470e88a04"},
+    {file = "cx_Oracle-8.3.0-cp310-cp310-win_amd64.whl", hash = "sha256:07f01608dfb6603a8f2a868fc7c7bdc951480f187df8dbc50f4d48c884874e6a"},
+    {file = "cx_Oracle-8.3.0-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:4b3afe7a911cebaceda908228d36839f6441cbd38e5df491ec25960562bb01a0"},
+    {file = "cx_Oracle-8.3.0-cp36-cp36m-win32.whl", hash = "sha256:076ffb71279d6b2dcbf7df028f62a01e18ce5bb73d8b01eab582bf14a62f4a61"},
+    {file = "cx_Oracle-8.3.0-cp36-cp36m-win_amd64.whl", hash = "sha256:b82e4b165ffd807a2bd256259a6b81b0a2452883d39f987509e2292d494ea163"},
+    {file = "cx_Oracle-8.3.0-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:b902db61dcdcbbf8dd981f5a46d72fef40c5150c7fc0eb0f0698b462d6eb834e"},
+    {file = "cx_Oracle-8.3.0-cp37-cp37m-win32.whl", hash = "sha256:4c82ca74442c298ceec56d207450c192e06ecf8ad52eb4aaad0812e147ceabf7"},
+    {file = "cx_Oracle-8.3.0-cp37-cp37m-win_amd64.whl", hash = "sha256:54164974d526b76fdefb0b66a42b68e1fca5df78713d0eeb8c1d0047b83f6bcf"},
+    {file = "cx_Oracle-8.3.0-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:410747d542e5f94727f5f0e42e9706c772cf9094fb348ce965ab88b3a9e4d2d8"},
+    {file = "cx_Oracle-8.3.0-cp38-cp38-win32.whl", hash = "sha256:3baa878597c5fadb2c72f359f548431c7be001e722ce4a4ebdf3d2293a1bb70b"},
+    {file = "cx_Oracle-8.3.0-cp38-cp38-win_amd64.whl", hash = "sha256:de42bdc882abdc5cea54597da27a05593b44143728e5b629ad5d35decb1a2036"},
+    {file = "cx_Oracle-8.3.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:df412238a9948340591beee9ec64fa62a2efacc0d91107034a7023e2991fba97"},
+    {file = "cx_Oracle-8.3.0-cp39-cp39-win32.whl", hash = "sha256:70d3cf030aefd71f99b45beba77237b2af448adf5e26be0db3d0d3dee6ea4230"},
+    {file = "cx_Oracle-8.3.0-cp39-cp39-win_amd64.whl", hash = "sha256:bf01ce87edb4ef663b2e5bd604e1e0154d2cc2f12b60301f788b569d9db8a900"},
+    {file = "cx_Oracle-8.3.0.tar.gz", hash = "sha256:3b2d215af4441463c97ea469b9cc307460739f89fdfa8ea222ea3518f1a424d9"},
+]
 darglint = [
     {file = "darglint-1.8.1-py3-none-any.whl", hash = "sha256:5ae11c259c17b0701618a20c3da343a3eb98b3bc4b5a83d31cdd94f5ebdced8d"},
     {file = "darglint-1.8.1.tar.gz", hash = "sha256:080d5106df149b199822e7ee7deb9c012b49891538f14a11be681044f0bb20da"},
@@ -558,6 +614,10 @@ docutils = [
 eradicate = [
     {file = "eradicate-2.1.0-py3-none-any.whl", hash = "sha256:8bfaca181db9227dc88bdbce4d051a9627604c2243e7d85324f6d6ce0fd08bb2"},
     {file = "eradicate-2.1.0.tar.gz", hash = "sha256:aac7384ab25b1bf21c4c012de9b4bf8398945a14c98c911545b2ea50ab558014"},
+]
+et-xmlfile = [
+    {file = "et_xmlfile-1.1.0-py3-none-any.whl", hash = "sha256:a2ba85d1d6a74ef63837eed693bcb89c3f752169b0e3e7ae5b16ca5e1b3deada"},
+    {file = "et_xmlfile-1.1.0.tar.gz", hash = "sha256:8eb9e2bc2f8c97e37a2dc85a09ecdcdec9d8a396530a6d5a33b30b9a92da0c5c"},
 ]
 flake8 = [
     {file = "flake8-4.0.1-py2.py3-none-any.whl", hash = "sha256:479b1304f72536a55948cb40a32dce8bb0ffe3501e26eaf292c7e60eb5e0428d"},
@@ -630,6 +690,10 @@ mccabe = [
     {file = "mccabe-0.6.1-py2.py3-none-any.whl", hash = "sha256:ab8a6258860da4b6677da4bd2fe5dc2c659cff31b3ee4f7f5d64e79735b80d42"},
     {file = "mccabe-0.6.1.tar.gz", hash = "sha256:dd8d182285a0fe56bace7f45b5e7d1a6ebcbf524e8f3bd87eb0f125271b8831f"},
 ]
+openpyxl = [
+    {file = "openpyxl-3.0.10-py2.py3-none-any.whl", hash = "sha256:0ab6d25d01799f97a9464630abacbb34aafecdcaa0ef3cba6d6b3499867d0355"},
+    {file = "openpyxl-3.0.10.tar.gz", hash = "sha256:e47805627aebcf860edb4edf7987b1309c1b3632f3750538ed962bbcc3bd7449"},
+]
 pbr = [
     {file = "pbr-5.9.0-py2.py3-none-any.whl", hash = "sha256:e547125940bcc052856ded43be8e101f63828c2d94239ffbe2b327ba3d5ccf0a"},
     {file = "pbr-5.9.0.tar.gz", hash = "sha256:e8dca2f4b43560edef58813969f52a56cef023146cbb8931626db80e6c1c4308"},
@@ -653,6 +717,10 @@ pyflakes = [
 pygments = [
     {file = "Pygments-2.12.0-py3-none-any.whl", hash = "sha256:dc9c10fb40944260f6ed4c688ece0cd2048414940f1cea51b8b226318411c519"},
     {file = "Pygments-2.12.0.tar.gz", hash = "sha256:5eb116118f9612ff1ee89ac96437bb6b49e8f04d8a13b514ba26f620208e26eb"},
+]
+python-dotenv = [
+    {file = "python-dotenv-0.20.0.tar.gz", hash = "sha256:b7e3b04a59693c42c36f9ab1cc2acc46fa5df8c78e178fc33a8d4cd05c8d498f"},
+    {file = "python_dotenv-0.20.0-py3-none-any.whl", hash = "sha256:d92a187be61fe482e4fd675b6d52200e7be63a12b724abbf931a40ce4fa92938"},
 ]
 pyyaml = [
     {file = "PyYAML-6.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:d4db7c7aef085872ef65a8fd7d6d09a14ae91f691dec3e87ee5ee0539d516f53"},

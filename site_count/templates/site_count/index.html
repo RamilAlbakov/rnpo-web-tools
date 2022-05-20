@@ -1,0 +1,168 @@
+{% extends 'about/layout.html' %}
+
+{% block content %}
+<div class="features">
+
+    <div>
+        <h4>Select Table</h4>
+        <button id="host-btn" type="button" class="btn btn-primary">Operator</button>
+        <button id="vendor-btn" type="button" class="btn btn-primary">Vendor</button>
+        <button id="region-btn" type="button" class="btn btn-primary">Regions</button>
+        <a id="download_excel" href="{% url 'download_sites' %}" class="btn btn-success">
+            Download
+        </a>
+    </div>
+    
+    <div id="host" class="table-block active-table">
+    <h4>Kcell sites devided by host operator</h4>
+    <table class="table table-dark table-bordered">
+      <thead>
+        <tr>
+            <th scope="col">Host</th>
+            <th scope="col">2G</th>
+            <th scope="col">3G</th>
+            <th scope="col">4G</th>
+            <th scope="col">5G</th>
+            <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for row in operator_rows %}
+            <tr>
+                <td>{{ row.header }}</td>
+                <td>{{ row.2G }}</td>
+                <td>{{ row.3G }}</td>
+                <td>{{ row.4G }}</td>
+                <td>{{ row.5G }}</td>
+                <td>{{ row.total }}</td>
+            </tr>
+          {% endfor %}
+            <tr>
+                <td>Total</td>
+                <td>{{ total_row.2G }}</td>
+                <td>{{ total_row.3G }}</td>
+                <td>{{ total_row.4G }}</td>
+                <td>{{ total_row.5G }}</td>
+                <td>{{ total_row.total }}</td>
+            </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div id="vendor" class="table-block hidden-table">
+    <h4>Kcell sites devided by vendors</h4>
+    <table class="table table-dark table-bordered">
+      <thead>
+        <tr>
+            <th scope="col">Vendor</th>
+            <th scope="col">2G</th>
+            <th scope="col">3G</th>
+            <th scope="col">4G</th>
+            <th scope="col">5G</th>
+            <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for row in vendor_rows %}
+            <tr>
+                <td>{{ row.header }}</td>
+                <td>{{ row.2G }}</td>
+                <td>{{ row.3G }}</td>
+                <td>{{ row.4G }}</td>
+                <td>{{ row.5G }}</td>
+                <td>{{ row.total }}</td>
+            </tr>
+          {% endfor %}
+            <tr>
+                <td>Total</td>
+                <td>{{ total_row.2G }}</td>
+                <td>{{ total_row.3G }}</td>
+                <td>{{ total_row.4G }}</td>
+                <td>{{ total_row.5G }}</td>
+                <td>{{ total_row.total }}</td>
+            </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div id="region" class="table-block hidden-table">
+    <h4>Kcell host sites devided by regions</h4>
+    <table class="table table-dark table-bordered">
+      <thead>
+        <tr>
+            <th scope="col">Region</th>
+            <th scope="col">2G</th>
+            <th scope="col">3G</th>
+            <th scope="col">4G</th>
+            <th scope="col">5G</th>
+            <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for row in region_rows %}
+            <tr>
+                <td>{{ row.header }}</td>
+                <td>{{ row.2G }}</td>
+                <td>{{ row.3G }}</td>
+                <td>{{ row.4G }}</td>
+                <td>{{ row.5G }}</td>
+                <td>{{ row.total }}</td>
+            </tr>
+          {% endfor %}
+            <tr>
+                <td>Total</td>
+                <td>{{ kcell_sites.2G }}</td>
+                <td>{{ kcell_sites.3G }}</td>
+                <td>{{ kcell_sites.4G }}</td>
+                <td>{{ kcell_sites.5G }}</td>
+                <td>{{ kcell_sites.total }}</td>
+            </tr>
+      </tbody>
+    </table>
+    </div>
+</div>
+<script>
+    const hostBtn = document.getElementById('host-btn');
+    hostBtn.addEventListener('click', () => {
+        const activeTable = document.getElementsByClassName('active-table')[0]
+        activeTable.classList.add('hidden-table')
+        activeTable.classList.remove('active-table')
+
+        const host = document.getElementById('host');
+        host.classList.remove('hidden-table');
+        host.classList.add('active-table');
+    })
+
+    const vendorBtn = document.getElementById('vendor-btn');
+    vendorBtn.addEventListener('click', () => {
+        const activeTable = document.getElementsByClassName('active-table')[0]
+        activeTable.classList.add('hidden-table')
+        activeTable.classList.remove('active-table')
+
+        const vendor = document.getElementById('vendor');
+        vendor.classList.remove('hidden-table');
+        vendor.classList.add('active-table');
+    })
+
+    const regionBtn = document.getElementById('region-btn');
+    regionBtn.addEventListener('click', () => {
+        const activeTable = document.getElementsByClassName('active-table')[0]
+        activeTable.classList.add('hidden-table')
+        activeTable.classList.remove('active-table')
+
+        const region = document.getElementById('region');
+        region.classList.remove('hidden-table');
+        region.classList.add('active-table');
+    })
+
+    const download = document.getElementById('download_excel')
+    download.addEventListener('click', () => {
+        download.innerHTML = '<span class="spinner-border spinner-border-sm"></span>Loading...';
+        fetch('http://127.0.0.1:8000/site_count/download/')
+            .then(response => {
+                console.log(response.ok)
+                download.innerHTML = "Download";
+            })
+    })
+</script>
+{% endblock %}

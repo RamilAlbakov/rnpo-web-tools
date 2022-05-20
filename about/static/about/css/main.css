@@ -44,3 +44,15 @@ main .features {
   max-height: 100vh;
   overflow-y: auto;
 }
+
+.table-block {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    width: 60%;
+}
+
+.hidden-table {
+    display: none;
+}
