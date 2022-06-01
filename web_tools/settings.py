@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'about.apps.AboutConfig',
     'site_count.apps.SiteCountConfig',
+    'network_live.apps.NetworkLiveConfig',
 ]
 
 MIDDLEWARE = [

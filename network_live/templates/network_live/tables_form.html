@@ -1,0 +1,41 @@
+{% extends 'about/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="nl">
+        <h1>Select technologies</h1>
+        <form method="POST" id="network_live">
+            {% csrf_token %}
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="lte" id="lte">
+                <label class="form-check-label" for="lte">
+                    LTE Cells
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="wcdma" id="wcdma">
+                <label class="form-check-label" for="wcdma">
+                    WCDMA Cells
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="gsm" id="gsm">
+                <label class="form-check-label" for="gsm">
+                    GSM Cells
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="nr" id="nr">
+                <label class="form-check-label" for="nr">
+                    NR Cells
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary" id="nl-submit">Download</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block jsscripts %}
+  <script src="{% static 'network_live/js/index.js' %}"></script>
+{% endblock %}
