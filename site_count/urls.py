@@ -1,3 +1,5 @@
+"""Urls configureatin for site_count app."""
+
 from django.urls import path
 
 from .views import count_sites, download_sites

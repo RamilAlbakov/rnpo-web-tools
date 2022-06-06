@@ -7,12 +7,15 @@
 
     <div>
         <h4>Select Table</h4>
-        <button id="host-btn" type="button" class="btn btn-primary">Operator</button>
-        <button id="vendor-btn" type="button" class="btn btn-primary">Vendor</button>
-        <button id="region-btn" type="button" class="btn btn-primary">Regions</button>
-        <a id="download_excel" href="{% url 'download_sites' %}" class="btn btn-success">
-            Download
-        </a>
+        <div id="buttons">
+          <button id="host-btn" type="button" class="btn btn-primary">Operator</button>
+          <button id="vendor-btn" type="button" class="btn btn-primary">Vendor</button>
+          <button id="region-btn" type="button" class="btn btn-primary">Regions</button>
+          <form method="POST" id="kcell-sites">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success" id="download-excel">Download</button>
+          </form>
+        </div>
     </div>
     
     <div id="host" class="table-block active-table">
