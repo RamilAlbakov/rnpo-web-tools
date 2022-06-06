@@ -128,4 +128,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-site_count/logs/*
+network_live/logs/kcell_cells.xlsx
+site_count/logs/site_data.xlsx
